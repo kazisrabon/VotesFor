@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.example.iit.dhakathon"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.google.android.gms:play-services:6.5.87'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile files('libs/circleimageview-1.2.0-sources.jar')
+    compile 'com.mikepenz.iconics:octicons-typeface:2.2.0@aar'
+    compile('com.mikepenz.materialdrawer:library:2.7.0@aar') {
+        transitive = true
+    }
+    compile 'de.hdodenhof:circleimageview:1.2.0'
+    compile 'com.android.support:support-v4:22.0.0'
+}

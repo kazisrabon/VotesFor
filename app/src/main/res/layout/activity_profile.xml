@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar"
+        android:id="@+id/circleView"
+        android:elevation="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="210dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Edit image icon"
+        android:clickable="true"
+        android:padding="4dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/edit_states"
+        android:src="@drawable/ic_action_map"
+        android:layout_alignBottom="@+id/circleView"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_border"
+        android:hint="Candicate Name"
+        android:paddingTop="6dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="6dp"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="131dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/textViewName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textview_border"
+        android:hint="Candicate Area"
+        android:paddingTop="6dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="6dp"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:layout_alignTop="@+id/textViewName"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="56dp"
+        android:id="@+id/textViewArea"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="Rate" />
+
+</RelativeLayout>
