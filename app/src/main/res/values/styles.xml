@@ -2,6 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus">
+        <item name="android:dropDownListViewStyle">@style/mySpinnerStyle</item>
         <item name="colorPrimary">@color/ColorPrimary</item>
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <item name="android:textColor">@color/colortext</item>
@@ -34,6 +35,11 @@
 
         <!-- CAB :D -->
         <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="mySpinnerStyle" parent="android:Widget.ListView.DropDown">
+        <item name="android:divider">#01579B</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
 
 </resources>

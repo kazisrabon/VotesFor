@@ -19,23 +19,27 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by IIT on 4/17/2015.
  */
-public class MapActivity extends ActionBarActivity {
+public class PollMap extends ActionBarActivity {
 
     // Google Map
     private GoogleMap googleMap;
     private double latitude;
     private double longitude;
+    private String name;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map);
+        setContentView(R.layout.activity_map);
 
         try {
-            // Loading map
+            // Loading map_ratting
             initilizeMap();
 
         } catch (Exception e) {
@@ -43,12 +47,13 @@ public class MapActivity extends ActionBarActivity {
         }
     }
 
+
     private void initilizeMap() {
         if (googleMap == null) {
             googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(
-                    R.id.map)).getMap();
+                    R.id.map1)).getMap();
             googleMap.setBuildingsEnabled(true);
-            // check if map is created successfully or not
+            // check if map_ratting is created successfully or not
             if (googleMap == null) {
                 Toast.makeText(getApplicationContext(),
                         "Sorry! unable to create maps", Toast.LENGTH_SHORT)
@@ -67,8 +72,9 @@ public class MapActivity extends ActionBarActivity {
         Location nwLocation = locationService.getLocation(LocationManager.NETWORK_PROVIDER);
 
         if (nwLocation != null) {
-            latitude = nwLocation.getLatitude();
-            longitude = nwLocation.getLongitude();
+            latitude = getIntent().getDoubleExtra("lat", 0.0);
+            longitude = getIntent().getDoubleExtra("lon", 0.0);
+            name = getIntent().getStringExtra("name");
 
         } else {
             showSettingsAlert("NETWORK");
@@ -76,13 +82,13 @@ public class MapActivity extends ActionBarActivity {
         }
 
         googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(
-                R.id.map)).getMap();
+                R.id.map1)).getMap();
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(latitude, longitude)) // Sets the center of the map to
-                .zoom(18)                   // Sets the zoom
+                .target(new LatLng(latitude, longitude)) // Sets the center of the map_ratting to
+                .zoom(15)                   // Sets the zoom
                 .bearing(0) // Sets the orientation of the camera to east
-                .tilt(90)    // Sets the tilt of the camera to 30 degrees
+                .tilt(0)    // Sets the tilt of the camera to 30 degrees
                 .build();    // Creates a CameraPosition from the builder
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -91,16 +97,16 @@ public class MapActivity extends ActionBarActivity {
 //        mMap.setMyLocationEnabled(true); // false to disable
 
         //Zooming Buttons
-//        mMap.getUiSettings().setZoomControlsEnabled(true); // true to enable
+        googleMap.getUiSettings().setZoomControlsEnabled(true); // true to enable
 
         //Zooming Functionality
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
 
         //Compass Functionality
-//        mMap.getUiSettings().setCompassEnabled(true);
+        googleMap.getUiSettings().setCompassEnabled(true);
 
         //My Location Button
-//        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        googleMap.getUiSettings().setMyLocationButtonEnabled(true);
 
         //Map Rotate Gesture
         googleMap.getUiSettings().setRotateGesturesEnabled(true);
@@ -112,10 +118,9 @@ public class MapActivity extends ActionBarActivity {
         googleMap.getUiSettings().setRotateGesturesEnabled(true);
         googleMap.getUiSettings().setMapToolbarEnabled(true);
         googleMap.setLocationSource(new CurrentLocationProvider(this));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title(name).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
         Log.e("Map", "Started map3");
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.8153059, 90.41311)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-        //            final List<Beep> results = mBeepTable.execute().get();
-        Log.e("Map", "Started map4");
+
     }
 
     @Override

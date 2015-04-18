@@ -1,72 +1,101 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/avatar"
-        android:id="@+id/circleView"
-        android:elevation="8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="210dp" />
+        android:id="@+id/scrollProfile">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageButton
-        android:id="@+id/imageButtonMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Edit image icon"
-        android:clickable="true"
-        android:padding="4dp"
-        android:scaleType="fitXY"
-        android:background="@drawable/edit_states"
-        android:src="@drawable/ic_action_map"
-        android:layout_alignBottom="@+id/circleView"
-        android:layout_alignParentRight="true" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/avatar"
+                android:id="@+id/circleView"
+                android:fadingEdgeLength="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/textview_border"
-        android:hint="Candicate Name"
-        android:paddingTop="6dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="6dp"
-        android:textSize="18sp"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="131dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:id="@+id/textViewName" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/textview_border"
-        android:hint="Candicate Area"
-        android:paddingTop="6dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="6dp"
-        android:textSize="18sp"
-        android:gravity="center_vertical"
-        android:layout_alignTop="@+id/textViewName"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="56dp"
-        android:id="@+id/textViewArea"/>
 
-        <RatingBar
-            android:id="@+id/ratingBar1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:hint="Candicate Name"
+                android:textSize="30sp"
+                android:layout_below="@+id/circleView"
+                android:gravity="center_vertical"
+                android:id="@+id/textViewName"
+                android:padding="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
 
-        <Button
-            android:id="@+id/ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="Rate" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_border"
+                android:hint="Candidate Area"
+                android:padding="6dp"
+                android:textSize="18sp"
+                android:textColor="@color/abc_background_cache_hint_selector_material_light"
+                android:layout_below="@+id/textViewName"
+                android:gravity="center_vertical"
+                android:id="@+id/textViewArea"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingText"
+                android:layout_below="@+id/textViewArea"
+                android:text="Rating"
+                android:textSize="25dp"
+                android:textStyle="italic"
+                android:textColor="@color/accent_material_light"
+                android:layout_marginTop="20dp"
+                />
+            <RatingBar
+                android:id="@+id/ratingBar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/ratingText"
+                android:layout_alignParentLeft="true"
+                 />
+
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate"
+                android:layout_below="@id/ratingText"
+                android:layout_toRightOf="@+id/ratingBar1"
+                android:background="@drawable/btnrate"
+                android:layout_marginTop="20dp"
+                />
+            <ImageButton
+                android:id="@+id/imageButtonMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Edit image icon"
+                android:clickable="true"
+
+                android:background="@drawable/edit_states"
+                android:src="@drawable/ic_action_map"
+                android:layout_below="@+id/ratingBar1"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="20dp"
+                />
+
+        </RelativeLayout>
+
+        </ScrollView>
 
 </RelativeLayout>

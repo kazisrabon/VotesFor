@@ -1,12 +1,8 @@
 package com.example.iit.dhakathon;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,36 +10,104 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends ActionBarActivity {
 
+public class CandidateList extends ActionBarActivity implements View.OnClickListener {
+    Spinner spCityCorporation, spCandidateType;
+
+    int spCCTypeSelected = 0;
+    int spCouncilorTypeSelected = 0;
+    Button bSearch;
     private Drawer.Result result;
     private AccountHeader.Result headerResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_candidate_list);
 
-        initDrawer(savedInstanceState);
-        sendNotification("Dhaka City Corporation Election: 9 days remaining!!!", R.mipmap.ic_launcher);
+        init();
+//        initDrawer(savedInstanceState);
+    }
+
+    private void init() {
+        spCandidateType = (Spinner) findViewById(R.id.spCityCorporationType);
+        spCityCorporation = (Spinner) findViewById(R.id.spCityCorporationName);
+        setSpinnerAdapter();
+        setSpinnerListener();
+        bSearch = (Button) findViewById(R.id.bSearch);
+        bSearch.setOnClickListener(this);
+    }
+
+    private void setSpinnerListener() {
+        spCityCorporation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spCCTypeSelected = i;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                spCCTypeSelected = 0;
+            }
+        });
+
+        spCandidateType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spCouncilorTypeSelected = i;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                spCouncilorTypeSelected = 0;
+            }
+        });
+    }
+
+    private void setSpinnerAdapter() {
+        List<String> listOfRMO = new ArrayList<String>();
+
+
+        listOfRMO.add("Dhaka North City Corporation");
+        listOfRMO.add("Dhaka South City Corporation");
+        listOfRMO.add("Chittagong City Corporation");
+        ArrayAdapter<String> dataAdapterOfRMO = new ArrayAdapter<String>(this,
+                R.layout.custom_simple_spinner, listOfRMO);
+        dataAdapterOfRMO.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCityCorporation.setAdapter(dataAdapterOfRMO);
+
+        List<String> listOfRMO2 = new ArrayList<String>();
+
+        listOfRMO2.add("Mayor");
+        listOfRMO2.add("Councilor");
+        listOfRMO2.add("Reserved Councilor");
+        ArrayAdapter<String> dataAdapterOfRMO2 = new ArrayAdapter<String>(this,
+                R.layout.custom_simple_spinner, listOfRMO2);
+        dataAdapterOfRMO2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCandidateType.setAdapter(dataAdapterOfRMO2);
+
     }
 
     private void initDrawer(Bundle savedInstanceState) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         headerResult = new AccountHeader()
                 .withActivity(this)
@@ -64,7 +128,6 @@ public class MainActivity extends ActionBarActivity {
                 .withActivity(this)
                 .withHeader(R.layout.header)
                 .withAccountHeader(headerResult)
-                .withToolbar(toolbar)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.drawer_item_candidates).withIcon(FontAwesome.Icon.faw_male).withIdentifier(0),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_polling_stations).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
@@ -77,18 +140,18 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
-                            getSupportActionBar().setTitle(((Nameable) drawerItem).getNameRes());
+
                             Fragment fragment = null;
                             if (drawerItem.getIdentifier() == 0) {
-                                startActivity(new Intent(MainActivity.this,CandidateList.class));
+                                startActivity(new Intent(CandidateList.this,CandidateList.class));
                             } else if (drawerItem.getIdentifier() == 1) {
-                                startActivity(new Intent(MainActivity.this, PollingStationActivity.class));
+//                                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                             } else if (drawerItem.getIdentifier() == 2) {
-                                startActivity(new Intent(MainActivity.this, Map.class));
+                                startActivity(new Intent(CandidateList.this, Map.class));
                             } else if (drawerItem.getIdentifier() == 3) {
-                                startActivity(new Intent(MainActivity.this, NearestVenue.class));
+                                startActivity(new Intent(CandidateList.this, NearestVenue.class));
                             } else if (drawerItem.getIdentifier() == 4) {
-                                startActivity(new Intent(MainActivity.this, ShareActivity.class));
+                                startActivity(new Intent(CandidateList.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
                                 fragment = new Info1();
                             }
@@ -103,53 +166,20 @@ public class MainActivity extends ActionBarActivity {
                 })
                 .withFireOnInitialOnClick(true)
                 .withSavedInstance(savedInstanceState)
-                .withSelectedItem(-1)
+                .withSelectedItem(0)
                 .build();
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
-    }
-
-    private void sendNotification(String alert, int icon) {
-        Intent intent = new Intent(this, NearestVenue.class);
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setAutoCancel(true);
-        builder.setContentTitle("VotesFor");
-        builder.setContentText(alert);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.addAction(icon, "View Map", pIntent);
-        builder.setVibrate(new long[(int) 1]);
-        builder.setAutoCancel(true);
-
-        Notification notification = builder.build();
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(8, notification);
-        notification.defaults |= Notification.DEFAULT_SOUND;
-        notification.defaults |= Notification.DEFAULT_VIBRATE;
+//        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void onClick(View view) {
+        if (view == bSearch) {
+            Intent intent=new Intent(CandidateList.this,ListViewOfCandidates.class);
+            intent.putExtra("url",URL.URL[spCCTypeSelected][spCouncilorTypeSelected]);
+            startActivity(intent);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

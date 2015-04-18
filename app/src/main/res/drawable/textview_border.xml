@@ -3,27 +3,27 @@
      <item>
         <shape>
             <padding android:top="0.5dp" android:right="0.5dp" android:bottom="1dp" android:left="0.5dp" />
-            <solid android:color="#55CCCCCC" />
+            <solid android:color="@color/ColorAccent" />
             <corners android:radius="2dp" />
         </shape>
     </item>
      <item>
         <shape>
             <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
-            <solid android:color="#60CCCCCC" />
+            <solid android:color="@color/ColorAccent" />
             <corners android:radius="2dp" />
         </shape>
     </item>
      <item>
         <shape>
             <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
-            <solid android:color="#70CCCCCC" />
+            <solid android:color="@color/ColorAccent" />
            	<corners android:radius="2dp" />
         </shape>
     </item>    
     <item>
 		<shape>
-        	<solid android:color="#ffffff" />
+        	<solid android:color="@color/ColorAccent" />
 	    	<corners android:radius="2dp" />
 		</shape>
     </item>

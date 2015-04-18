@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DhakaThon</string>
+    <string name="app_name">VoteFor</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -14,17 +14,18 @@
     <string name="drawer_item_simple_fragment_drawer">SimpleFragment Sample</string>
     <string name="drawer_item_embedded_drawer">EmbeddedDrawer Sample</string>
     <string name="drawer_item_fullscreen_drawer">FullScreen Sample</string>
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_free_play">Free Play</string>
-    <string name="drawer_item_custom">Custom</string>
-    <string name="drawer_item_section_header">Section Header</string>
-    <string name="drawer_item_settings">Settings</string>
-    <string name="drawer_item_help">Help</string>
+    <string name="drawer_item_candidates">Candidates</string>
+    <string name="drawer_item_polling_stations">Polling Stations</string>
+    <string name="drawer_item_map">Map</string>
+    <string name="drawer_item_section_nearest">Nearest Polling Station</string>
+    <string name="drawer_item_share">Share</string>
+    <string name="drawer_item_info">Basic Info</string>
     <string name="drawer_item_open_source">Open Source</string>
     <string name="drawer_item_contact">Contact</string>
 
     <string name="info1">কোনো প্রতিষ্ঠানে চাঁদা, অনুদান ইত্যাদি, প্রদান নিষিদ্ধ – কোন প্রার্থী কিংবা তাহার পক্ষ হইতে অন্য কোন ব্যক্তি নির্বাচন-পূর্ব সময়ে উক্ত প্রার্থীর নির্বাচনী এলাকার মধ্যে বা অন্যত্র অবস্থিত কোন প্রতিষ্ঠানে প্রকাশ্যে বা গোপনে কোন প্রকার চাঁদা বা অনুদান প্রদান করিতে বা প্রদানের অঙ্গীকার করিতে পারিবেন না । </string>
 <string name="info3"> ভোট কেন্দ্রে প্রবেশাধিকার – ভোটকেন্দ্রে নির্বাচনী কর্মকর্তা কর্মচারী, প্রতিদ্বন্ধী প্রার্থী, নির্বাচনী এজেন্ট, নির্বাচনী পর্যবেক্ষক, কমিশন কর্তৃক অনুমোদিত ব্যক্তিবর্গ এবং কেবল ভোটারদেরই প্রবেশাধিকার থাকিবে । </string>
 <string name="info2"> জালভোট প্রদানে জোর করা আইনত দন্দনীয়- ভোট কেন্দ্রে কোন পদপ্রার্থী বা তার সমর্থকবৃন্দগণ স্ব-স্ব দলের ভোটের জন্য ভোটারদের ভয় দেখানো, বিভিন্ন ধরনের প্রলোভোন দেখানো ইত্যাদি সম্পূর্ণভাবে নিষিদ্ধ । </string>
+    <string name="title_activity_polling_station">PollingStationActivity</string>
 
 </resources>

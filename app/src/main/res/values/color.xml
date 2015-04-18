@@ -18,6 +18,8 @@
     <color name="red">#FF0000</color>
     <color name="greenDark">#04B404</color>
 
+    <color name="spinner_background">#9E9E9E</color>
+
     <!-- FAB-->
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#80e5e5e5</color>
