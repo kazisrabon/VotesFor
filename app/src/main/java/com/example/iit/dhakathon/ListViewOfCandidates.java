@@ -64,6 +64,7 @@ public class ListViewOfCandidates extends ActionBarActivity implements AsyncResp
                 Intent intent= new Intent(ListViewOfCandidates.this,ProfileActivity.class);
                 intent.putExtra("name",listOfCandidateDataObjects.get(i).getName());
                 intent.putExtra("location",listOfCandidateDataObjects.get(i).getPresent_address());
+                intent.putExtra("url", listOfCandidateDataObjects.get(i).getImage_link());
                 startActivity(intent);
                 Toast.makeText(ListViewOfCandidates.this,listOfCandidateDataObjects.get(i).getPresent_address(),Toast.LENGTH_SHORT).show();
             }

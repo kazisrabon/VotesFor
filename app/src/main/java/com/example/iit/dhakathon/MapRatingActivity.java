@@ -80,9 +80,9 @@ public class MapRatingActivity extends ActionBarActivity {
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(latitude, longitude)) // Sets the center of the map_ratting to
-                .zoom(18)                   // Sets the zoom
+                .zoom(12)                   // Sets the zoom
                 .bearing(0) // Sets the orientation of the camera to east
-                .tilt(90)    // Sets the tilt of the camera to 30 degrees
+                .tilt(0)    // Sets the tilt of the camera to 30 degrees
                 .build();    // Creates a CameraPosition from the builder
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -113,13 +113,13 @@ public class MapRatingActivity extends ActionBarActivity {
         googleMap.getUiSettings().setMapToolbarEnabled(true);
         googleMap.setLocationSource(new CurrentLocationProvider(this));
         Log.e("Map", "Started map3");
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.8153059, 90.41311)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.8153059, 90.41315)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794799, 90.419385)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794795, 90.419380)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794799, 90.419390)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794795, 90.419395)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.798883, 90.416434)).title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.8153059, 90.41311)).title("4").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.8153059, 90.41315)).title("4").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794799, 90.419385)).title("5").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794895, 90.419380)).title("5").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794999, 90.419390)).title("5").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.794795, 90.419395)).title("5").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(23.798883, 90.416434)).title("2").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         //            final List<Beep> results = mBeepTable.execute().get();
 //        23.794799, 90.419385     23.798883, 90.416434
         Log.e("Map", "Started map4");

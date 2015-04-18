@@ -80,12 +80,15 @@
         <activity
             android:name=".PollingStationActivity"
             android:label="@string/title_activity_polling_station"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".PollMap"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PollMap"
             android:label="Selected Map"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PushResultActivity"
+            android:label="@string/title_activity_push_result" >
+        </activity>
     </application>
 
 </manifest>

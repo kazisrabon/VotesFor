@@ -17,7 +17,7 @@
     <string name="drawer_item_candidates">Candidates</string>
     <string name="drawer_item_polling_stations">Polling Stations</string>
     <string name="drawer_item_map">Map</string>
-    <string name="drawer_item_section_nearest">Nearest Polling Station</string>
+    <string name="drawer_item_section_nearest">My Polling Station</string>
     <string name="drawer_item_share">Share</string>
     <string name="drawer_item_info">Basic Info</string>
     <string name="drawer_item_open_source">Open Source</string>
@@ -27,5 +27,6 @@
 <string name="info3"> ভোট কেন্দ্রে প্রবেশাধিকার – ভোটকেন্দ্রে নির্বাচনী কর্মকর্তা কর্মচারী, প্রতিদ্বন্ধী প্রার্থী, নির্বাচনী এজেন্ট, নির্বাচনী পর্যবেক্ষক, কমিশন কর্তৃক অনুমোদিত ব্যক্তিবর্গ এবং কেবল ভোটারদেরই প্রবেশাধিকার থাকিবে । </string>
 <string name="info2"> জালভোট প্রদানে জোর করা আইনত দন্দনীয়- ভোট কেন্দ্রে কোন পদপ্রার্থী বা তার সমর্থকবৃন্দগণ স্ব-স্ব দলের ভোটের জন্য ভোটারদের ভয় দেখানো, বিভিন্ন ধরনের প্রলোভোন দেখানো ইত্যাদি সম্পূর্ণভাবে নিষিদ্ধ । </string>
     <string name="title_activity_polling_station">PollingStationActivity</string>
+    <string name="title_activity_push_result">PushResultActivity</string>
 
 </resources>

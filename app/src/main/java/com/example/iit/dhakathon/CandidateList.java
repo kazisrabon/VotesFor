@@ -43,7 +43,8 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
         setContentView(R.layout.activity_candidate_list);
 
         init();
-//        initDrawer(savedInstanceState);
+
+       initDrawer();
     }
 
     private void init() {
@@ -107,8 +108,11 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
 
     }
 
-    private void initDrawer(Bundle savedInstanceState) {
-
+    private void initDrawer() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(false);
         headerResult = new AccountHeader()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
@@ -143,9 +147,9 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
 
                             Fragment fragment = null;
                             if (drawerItem.getIdentifier() == 0) {
-                                startActivity(new Intent(CandidateList.this,CandidateList.class));
+                                //startActivity(new Intent(CandidateList.this, CandidateList.class));
                             } else if (drawerItem.getIdentifier() == 1) {
-//                                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                                startActivity(new Intent(CandidateList.this, PollingStationActivity.class));
                             } else if (drawerItem.getIdentifier() == 2) {
                                 startActivity(new Intent(CandidateList.this, Map.class));
                             } else if (drawerItem.getIdentifier() == 3) {
@@ -164,8 +168,8 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
                         }
                     }
                 })
-                .withFireOnInitialOnClick(true)
-                .withSavedInstance(savedInstanceState)
+
+
                 .withSelectedItem(0)
                 .build();
 

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:title="Map"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp" />
 
 
     <ImageButton
@@ -9,7 +18,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButtonShare"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_camera"/>
+        android:src="@drawable/ic_camera" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -22,5 +31,5 @@
         android:id="@+id/buttonShare"
         android:layout_gravity="center_horizontal"
         android:text="Share"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
 </LinearLayout>

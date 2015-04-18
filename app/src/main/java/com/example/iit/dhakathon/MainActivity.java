@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         initDrawer(savedInstanceState);
-        sendNotification("Dhaka City Corporation Election: 9 days remaining!!!", R.mipmap.ic_launcher);
+        sendNotification("9 days remaining,Dhaka City Corporation Election", R.mipmap.ic_launcher);
     }
 
     private void initDrawer(Bundle savedInstanceState) {
@@ -103,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
                 })
                 .withFireOnInitialOnClick(true)
                 .withSavedInstance(savedInstanceState)
-                .withSelectedItem(-1)
+                .withSelectedItem(5)
                 .build();
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -112,7 +112,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void sendNotification(String alert, int icon) {
-        Intent intent = new Intent(this, NearestVenue.class);
+        Intent intent = new Intent(this, PushResultActivity.class);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
@@ -120,7 +120,7 @@ public class MainActivity extends ActionBarActivity {
         builder.setContentTitle("VotesFor");
         builder.setContentText(alert);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.addAction(icon, "View Map", pIntent);
+        builder.addAction(icon, "Click to see!!!", pIntent);
         builder.setVibrate(new long[(int) 1]);
         builder.setAutoCancel(true);
 
