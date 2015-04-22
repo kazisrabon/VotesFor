@@ -92,13 +92,12 @@ public class MainActivity extends ActionBarActivity {
                     }
                 })
                 .withFireOnInitialOnClick(true)
-                .withSavedInstance(savedInstanceState)
                 .withSelectedItem(0)
                 .build();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+//        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }
 
     private void sendNotification(String alert, int icon) {

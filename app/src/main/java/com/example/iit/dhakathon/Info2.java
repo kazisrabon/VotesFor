@@ -93,11 +93,11 @@ public class Info2 extends ActionBarActivity {
                     }
                 })
 
-
+                .withFireOnInitialOnClick(true)
                 .withSelectedItem(5)
                 .build();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
 //        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }

@@ -106,11 +106,11 @@ public class PollingStationActivity extends ActionBarActivity {
                     }
                 })
 
-
+                .withFireOnInitialOnClick(true)
                 .withSelectedItem(1)
                 .build();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
 //        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }

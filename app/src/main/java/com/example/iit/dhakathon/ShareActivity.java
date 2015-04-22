@@ -79,7 +79,7 @@ public class ShareActivity extends ActionBarActivity implements View.OnClickList
             share.setAction(Intent.ACTION_SEND);
             share.putExtra(android.content.Intent.EXTRA_SUBJECT, "My Vote");
             share.putExtra(Intent.EXTRA_TEXT, "#IVoteBD");
-            share.setType("image/jpg");
+            share.setType("image/png");
             Uri myUri = Uri.parse(fileUri.getPath());
             share.putExtra(Intent.EXTRA_STREAM, myUri);
             Log.e("Capture", fileUri.getPath()+"");
@@ -147,7 +147,7 @@ public class ShareActivity extends ActionBarActivity implements View.OnClickList
         File mediaFile;
         if (type == MEDIA_TYPE_IMAGE) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "IMG_" + timeStamp + ".jpg");
+                    + "IMG_" + timeStamp + ".png");
         } else {
             return null;
         }
@@ -260,11 +260,11 @@ public class ShareActivity extends ActionBarActivity implements View.OnClickList
                     }
                 })
 
-
+                .withFireOnInitialOnClick(true)
                 .withSelectedItem(4)
                 .build();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
 //        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }

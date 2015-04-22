@@ -1291,12 +1291,11 @@ public class Map extends ActionBarActivity {
                         }
                     }
                 })
-
-
+                .withFireOnInitialOnClick(true)
                 .withSelectedItem(2)
                 .build();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(false);
 //        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }
