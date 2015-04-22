@@ -4,11 +4,9 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,8 +18,6 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
@@ -78,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
                             getSupportActionBar().setTitle(((Nameable) drawerItem).getNameRes());
-                            Fragment fragment = null;
+//                            Fragment fragment = null;
                             if (drawerItem.getIdentifier() == 0) {
                                 startActivity(new Intent(MainActivity.this,CandidateList.class));
                             } else if (drawerItem.getIdentifier() == 1) {
@@ -90,20 +86,14 @@ public class MainActivity extends ActionBarActivity {
                             } else if (drawerItem.getIdentifier() == 4) {
                                 startActivity(new Intent(MainActivity.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
-                                fragment = new Info1();
-                            }
-                            if (fragment != null) {
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+                                startActivity(new Intent(MainActivity.this, Info1.class));
                             }
                         }
                     }
                 })
                 .withFireOnInitialOnClick(true)
                 .withSavedInstance(savedInstanceState)
-                .withSelectedItem(5)
+                .withSelectedItem(0)
                 .build();
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);

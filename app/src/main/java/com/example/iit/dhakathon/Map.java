@@ -8,7 +8,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,7 +21,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -1288,13 +1286,7 @@ public class Map extends ActionBarActivity {
                             } else if (drawerItem.getIdentifier() == 4) {
                                 startActivity(new Intent(Map.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
-                                fragment = new Info1();
-                            }
-                            if (fragment != null) {
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+                                startActivity(new Intent(Map.this, Info1.class));
                             }
                         }
                     }

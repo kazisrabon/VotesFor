@@ -1,53 +1,124 @@
 package com.example.iit.dhakathon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.mikepenz.iconics.typeface.FontAwesome;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 
 /**
  * Created by IIT on 4/17/2015.
  */
-public class Info2 extends Fragment {
+public class Info2 extends ActionBarActivity {
 
-    View view;
+//    View view;
     TextView tvInfo;
     ImageButton ibBack, ibForward;
+    private Drawer.Result result;
+    private AccountHeader.Result headerResult;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.info1, container, false);
-        init();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.info1);
 
-        return view;
+        initDrawer();
+        init();
+    }
+
+    private void initDrawer() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("MAP view");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(false);
+        headerResult = new AccountHeader()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .addProfiles(
+                        new ProfileDrawerItem().withName("Test").withEmail("test@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile))
+                )
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        return false;
+                    }
+                })
+                .build();
+
+        // Handle Toolbar
+        result = new Drawer()
+                .withActivity(this)
+                .withHeader(R.layout.header)
+                .withAccountHeader(headerResult)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_candidates).withIcon(FontAwesome.Icon.faw_male).withIdentifier(0),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_polling_stations).withIcon(FontAwesome.Icon.faw_home).withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_map).withIcon(FontAwesome.Icon.faw_globe).withIdentifier(2),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_section_nearest).withIcon(FontAwesome.Icon.faw_map_marker).withIdentifier(3),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_share).withIcon(FontAwesome.Icon.faw_share_alt).withIdentifier(4),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_info).withIcon(FontAwesome.Icon.faw_info_circle).withIdentifier(5)
+                )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                        if (drawerItem instanceof Nameable) {
+
+                            Fragment fragment = null;
+                            if (drawerItem.getIdentifier() == 0) {
+                                startActivity(new Intent(Info2.this, MainActivity.class));
+                            } else if (drawerItem.getIdentifier() == 1) {
+                                startActivity(new Intent(Info2.this, PollingStationActivity.class));
+                            } else if (drawerItem.getIdentifier() == 2) {
+                                startActivity(new Intent(Info2.this, Map.class));
+                            } else if (drawerItem.getIdentifier() == 3) {
+                                startActivity(new Intent(Info2.this, NearestVenue.class));
+                            } else if (drawerItem.getIdentifier() == 4) {
+                                startActivity(new Intent(Info2.this, ShareActivity.class));
+                            }
+                        }
+                    }
+                })
+
+
+                .withSelectedItem(5)
+                .build();
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(false);
+//        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
     }
 
     private void init() {
-        tvInfo = (TextView)view.findViewById(R.id.tvInfo);
+        tvInfo = (TextView)findViewById(R.id.tvInfo);
         tvInfo.setText(R.string.info2);
-        ibBack = (ImageButton)view.findViewById(R.id.imageButtonBack);
+        ibBack = (ImageButton)findViewById(R.id.imageButtonBack);
         ibBack.setVisibility(View.VISIBLE);
         ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Info1 info1 = new Info1();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, info1)
-                        .commit();
+                startActivity(new Intent(Info2.this, Info1.class));
             }
         });
-        ibForward = (ImageButton)view.findViewById(R.id.imageButtonForward);
+        ibForward = (ImageButton)findViewById(R.id.imageButtonForward);
         ibForward.setVisibility(View.VISIBLE);
         ibForward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Info3 info3 = new Info3();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, info3)
-                        .commit();
+                startActivity(new Intent(Info2.this, Info3.class));
             }
         });
     }

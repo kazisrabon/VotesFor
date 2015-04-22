@@ -87,8 +87,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".PushResultActivity"
-            android:label="@string/title_activity_push_result" >
+            android:label="@string/title_activity_push_result"
+            android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".Info1"
+            android:label="Information"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Info2"
+            android:label="Information"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Info3"
+            android:label="Information"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -1,13 +1,10 @@
 package com.example.iit.dhakathon;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -103,13 +100,7 @@ public class PollingStationActivity extends ActionBarActivity {
                             } else if (drawerItem.getIdentifier() == 4) {
                                 startActivity(new Intent(PollingStationActivity.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
-                                fragment = new Info1();
-                            }
-                            if (fragment != null) {
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+                                startActivity(new Intent(PollingStationActivity.this, Info1.class));
                             }
                         }
                     }

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -255,13 +254,7 @@ public class ShareActivity extends ActionBarActivity implements View.OnClickList
                             } else if (drawerItem.getIdentifier() == 4) {
                              //   startActivity(new Intent(Map.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
-                                fragment = new Info1();
-                            }
-                            if (fragment != null) {
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+                                startActivity(new Intent(ShareActivity.this, Info1.class));
                             }
                         }
                     }

@@ -1,19 +1,14 @@
 package com.example.iit.dhakathon;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -144,8 +139,6 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                         if (drawerItem instanceof Nameable) {
-
-                            Fragment fragment = null;
                             if (drawerItem.getIdentifier() == 0) {
                                 //startActivity(new Intent(CandidateList.this, CandidateList.class));
                             } else if (drawerItem.getIdentifier() == 1) {
@@ -157,13 +150,7 @@ public class CandidateList extends ActionBarActivity implements View.OnClickList
                             } else if (drawerItem.getIdentifier() == 4) {
                                 startActivity(new Intent(CandidateList.this, ShareActivity.class));
                             } else if (drawerItem.getIdentifier() == 5) {
-                                fragment = new Info1();
-                            }
-                            if (fragment != null) {
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragment_container, fragment)
-                                        .commit();
+                                startActivity(new Intent(CandidateList.this, Info1.class));
                             }
                         }
                     }
